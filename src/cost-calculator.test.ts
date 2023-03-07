@@ -47,7 +47,7 @@ describe('cost-calculator test', ()=>{
       `('should return isValid is true when booking datetimes are valid',({from, to})=>{
         const booking = new Booking(1,new Date(from), new Date(to))
         const result = calculateCost(booking);
-         expect(result.isValid).toBe(true);
+        expect(result.isValid).toBe(true);
       })
       
     })
