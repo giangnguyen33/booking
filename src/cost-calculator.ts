@@ -5,13 +5,14 @@ import { calculateWorkingHoursCost, getRateType } from "./rates";
 export const calculateCost = (booking:Booking) => {
     const {from, to} = booking;
     const duration = calculateDurationInHour(from, to);
-    const isValid = isValidTimeFormat(from) && isValidTimeFormat(to) && isValidDuration(duration)
-    if (!isValid) {
-        return {...booking, isValid, total:0};
-    } else {
+    const isValid = isValidTimeFormat(from) && isValidTimeFormat(to) && isValidDuration(duration);
+
+    if (isValid) {
         const rateType = getRateType(from, to);
         const workingHours  = {[rateType]: duration};
         const total = calculateWorkingHoursCost(workingHours);
         return {...booking, isValid, total};
-    }
+    }   
+
+    return {...booking, isValid, total:0};
 }

@@ -27,8 +27,8 @@ describe('datetimeValidator test', ()=>{
 
     describe('calculateDurationInHour test', ()=>{
         it.each`
-        from | to| hours         
-        ${'2017-10-23T08:00:00+11:00'} |  ${'2017-10-23T09:00:00+11:00'} |  ${1}
+        from                           | to                              | hours         
+        ${'2017-10-23T08:00:00+11:00'} |  ${'2017-10-23T09:00:00+11:00'} | ${1}
         ${'2017-10-23T08:15:00+11:00'} |  ${'2017-10-24T08:15:00+11:00'} | ${24}
         ${'2017-10-20T09:00:00+11:00'} |  ${'2017-10-20T11:45:00+11:00'} | ${2.75}
         ${'2017-10-23T08:45:00+11:00'} |  ${'2017-10-23T11:45:00+11:00'} | ${3}
@@ -42,11 +42,11 @@ describe('datetimeValidator test', ()=>{
     describe('isValidDuration test', ()=>{
       it.each`
         duration    | expected  
-        ${-0.75}     |  ${false}  
+        ${-0.75}    |  ${false}  
         ${0.75}     |  ${false}
         ${1}        |  ${true}
-        ${24}        |  ${true}
-        ${24.25}        |  ${false}
+        ${24}       |  ${true}
+        ${24.25}    |  ${false}
       `('should return $expected when duration is $duration',({duration, expected})=>{
         expect(isValidDuration(duration)).toBe(expected)
       })

@@ -23,11 +23,11 @@ describe('rates test', ()=>{
 
    describe('calculate cost',()=>{
     it.each`
-    workingHours                    | expected
-    ${{[RateType.Sun]:2.75}} |${60.85*2.75}
-    ${{[RateType.Sat]:2}}  |${45.91*2}
-    ${{[RateType.Day]:3.25}} |${38*3.25}
-   ${{[RateType.Night]:3}} |${42.93*3}
+    workingHours               | expected
+    ${{[RateType.Sun]:2.75}}   |${60.85*2.75}
+    ${{[RateType.Sat]:2}}      |${45.91*2}
+    ${{[RateType.Day]:3.25}}   |${38*3.25}
+   ${{[RateType.Night]:3}}     |${42.93*3}
   `('should return correct cost',({workingHours,expected})=>{
         expect(calculateWorkingHoursCost(workingHours)).toEqual(expected)
     })
