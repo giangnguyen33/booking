@@ -7,17 +7,17 @@ export enum RateType {
 
 export class Booking {
   id:number;
-  from:Date;
-  to:Date;
+  from:string;
+  to:string;
   constructor(id: number, from: string, to: string){
     this.id = id;
-    this.from = new Date(from);
-    this.to = new Date (to);
+    this.from = from;
+    this.to =  to;
   }
 } 
 
-interface BookingCost extends Booking{
+export interface BookingCost extends Booking{
   isValid:boolean;
-  cost:number;
+  total:number;
 }
 

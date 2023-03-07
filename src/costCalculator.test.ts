@@ -1,4 +1,4 @@
-import { calculateBookingCost, calculateBookingsCost } from "./cost-calculator"
+import { calculateBookingCost, calculateBookingsCost } from "./costCalculator"
 import { Booking } from "./models"
 
 describe('cost-calculator test', ()=>{
@@ -82,7 +82,7 @@ describe('cost-calculator test', ()=>{
         
         const expectedBooking1 = {...booking1, isValid:true, total:114}
         const expectedBooking2 = {...booking2, isValid:true, total:104.50}
-        
+
         const bookingsCost = calculateBookingsCost(bookings);
         expect(bookingsCost).toEqual([expectedBooking1, expectedBooking2]);
     })
