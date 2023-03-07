@@ -7,7 +7,7 @@ export const calculateCost = (booking:Booking) => {
     const duration = calculateDurationInHour(from, to);
     const isValid = isValidTimeFormat(from) && isValidTimeFormat(to) && isValidDuration(duration)
     if (!isValid) {
-        return {...booking, isValid};
+        return {...booking, isValid, total:0};
     } else {
         const rateType = getRateType(from, to);
         const workingHours  = {[rateType]: duration};

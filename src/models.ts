@@ -18,6 +18,6 @@ export class Booking {
 
 interface BookingCost extends Booking{
   isValid:boolean;
-  cost?:number;
+  cost:number;
 }
 

@@ -18,24 +18,28 @@ describe('cost-calculator test', ()=>{
         const booking = new Booking(1,new Date(from), new Date(to))
         const result = calculateCost(booking);
         expect(result.isValid).toBe(false);
+        expect(result.total).toBe(0);
       })
 
       it('should return isValid is false when end time before start time', ()=>{
         const booking = new Booking(1,new Date('017-10-23T12:00:00+11:00'), new Date('2017-10-23T11:00:00+11:00'))
         const result = calculateCost(booking);
         expect(result.isValid).toBe(false);
+        expect(result.total).toBe(0);
       })
 
       it('should return isValid is false when booking duration less than 1 hour', ()=>{
         const booking = new Booking(1,new Date('2017-10-23T11:00:00+11:00'), new Date('2017-10-23T11:15:00+11:00'))
         const result = calculateCost(booking);
         expect(result.isValid).toBe(false);
+        expect(result.total).toBe(0);
       })
 
       it('should return isValid is false when booking duration more than 24 hours', ()=>{
         const booking = new Booking(1,new Date('2017-10-23T11:00:00+11:00'), new Date('2017-10-24T11:15:00+11:00'))
         const result = calculateCost(booking);
         expect(result.isValid).toBe(false);
+        expect(result.total).toBe(0);
       })
 
       it.each`
@@ -61,11 +65,12 @@ describe('cost-calculator test', ()=>{
         ${'2017-10-23T08:00:00+11:00'} | ${'2017-10-23T11:00:00+11:00'} | ${38*3} 
         ${'2023-02-03T18:00:00+11:00'} | ${'2023-02-03T20:15:00+11:00'} | ${42.93*2.25} 
         ${'2023-02-03T05:00:00+11:00'} | ${'2023-02-03T10:00:00+11:00'} | ${42.93*5} 
-        ${'2017-10-20T09:00:00+11:00'} | ${'2017-10-20T11:45:00+11:00'} | ${38*3.75}
-      `('should return isValid is true when booking datetimes are valid',({from, to})=>{
+        ${'2017-10-20T09:00:00+11:00'} | ${'2017-10-20T11:45:00+11:00'} | ${38*2.75}
+      `('should return isValid is true when booking datetimes are valid',({from, to, total})=>{
         const booking = new Booking(1,new Date(from), new Date(to))
         const result = calculateCost(booking);
         expect(result.isValid).toBe(true);
+        expect(result.total).toBe(total);
       })
     })
 })
