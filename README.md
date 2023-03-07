@@ -28,6 +28,7 @@ tion between day and night
 
 ## Run the app
 - Open booking folder
+- Run $yarn to install all dependencies
 - Sample data in data/input.json. If you want to add more sample data, you can add more records in the input file
 - From terminal run $yarn start, the data will be written to output.json file
 
