@@ -2,7 +2,7 @@ import { calculateDurationInHour, isValidDuration, isValidTimeFormat } from "./d
 import { Booking } from "./models";
 import { calculateWorkingHoursCost, getRateType } from "./rates";
 
-export const calculateCost = (booking:Booking) => {
+export const calculateBookingCost = (booking:Booking) => {
     const {from, to} = booking;
     const duration = calculateDurationInHour(from, to);
     const isValid = isValidTimeFormat(from) && isValidTimeFormat(to) && isValidDuration(duration);
@@ -16,3 +16,5 @@ export const calculateCost = (booking:Booking) => {
 
     return {...booking, isValid, total:0};
 }
+
+export const calculateBookingsCost = (bookings: Booking[]) => bookings.map(booking=>calculateBookingCost(booking))

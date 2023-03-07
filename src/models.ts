@@ -9,10 +9,10 @@ export class Booking {
   id:number;
   from:Date;
   to:Date;
-  constructor(id: number, from: Date, to: Date){
+  constructor(id: number, from: string, to: string){
     this.id = id;
-    this.from = from;
-    this.to = to;
+    this.from = new Date(from);
+    this.to = new Date (to);
   }
 } 
 
