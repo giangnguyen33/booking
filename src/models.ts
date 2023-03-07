@@ -1,8 +1,8 @@
 export enum RateType {
-    Day,
-    Night,
-    Sat,
-    Sun,
+    Day = 'Day',
+    Night = 'Night',
+    Sat = 'Sat',
+    Sun = 'Sun',
   }
 
 export class Booking {
@@ -18,19 +18,6 @@ export class Booking {
 
 interface BookingCost extends Booking{
   isValid:boolean;
-  cost:number;
+  cost?:number;
 }
 
-export const hourlyRates = {
-  [RateType.Day]: 38,
-  [RateType.Night]: 42.93,
-  [RateType.Sat]:  45.91,
-  [RateType.Sun]:  60.85,
-};
-
-export const timetable = {
-  [RateType.Day]: {from:"0600", to: "2000"},
-  [RateType.Night]: {from:"2000", to: "0600"},
-  [RateType.Sat]:  {from:"0000", to: "2345"},
-  [RateType.Sun]:  {from:"0000", to: "2345"},
-};
