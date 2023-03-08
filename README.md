@@ -3,10 +3,6 @@
 The application should read a collection of bookings from a provided JSON
 file, calculate the cost of each booking and write the result to a new  JSON file
 
-- Deposit, withdraw and maintain a balance for multiple customers
-- Return a customer’s balance and the bank’s total balance
-- Prevent customers from withdrawing more money than they have in their account
-
 ## Assumptions
 -  Booking datetime is correct format because with limit time, I don't implement validate format datetime
 - Booking not cross 2 days for simply calculation with limit time of assigment. I think about the scenarios os booking time cross 2 days but it's not mention in the requirement.
