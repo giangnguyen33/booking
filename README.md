@@ -21,14 +21,15 @@ tion between day and night
 
 - Download Visual Studio Code or any IDE for Javascript (https://code.visualstudio.com/)
 - Install NodeJS
+- Install yarn (https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
 
 ## Run the app
 - Open booking folder
-- Run $yarn to install all dependencies
+- Run $npm install or $yarn to install all dependencies
 - Sample data in data/input.json. If you want to add more sample data, you can add more records in the input file
-- From terminal run $yarn start, the data will be written to output.json file
+- From terminal run $npm start or $yarn start, the data will be written to output.json file
 
 ## Run the tests
 - The test cases are under *test.ts files
-- To run the tests, from terminal run $yarn test
+- To run the tests, from terminal run $ npm run test or $yarn test
 
