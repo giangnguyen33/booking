@@ -27,22 +27,3 @@ export const getRateType =  (from:Date, to:Date): RateType =>{
            }
     }
 }
-
-const hourlyRates = {
-    [RateType.Day]: 38,
-    [RateType.Night]: 42.93,
-    [RateType.Sat]:  45.91,
-    [RateType.Sun]:  60.85,
-  };
-
-type WorkingHours = { [K in RateType]?: number; }
-
-export const calculateWorkingHoursCost = (workingHours: WorkingHours): number =>{
-    const keys = Object.keys(workingHours);
-    var cost = 0;
-    for (const [key, value] of  Object.entries(workingHours)) {
-        cost += hourlyRates[key as  RateType] * value
-    }
-    return cost;
-    
-}

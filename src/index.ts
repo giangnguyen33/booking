@@ -3,7 +3,7 @@ import input from './data/input.json'
 import { Booking } from './models'
 import fs from 'fs';
 
-const bookings:Booking[] = input//.map(booking => new Booking(booking.id, booking.from, booking.to));
+const bookings:Booking[] = input;
 const path = "src/data/output.json";
 try {
 
